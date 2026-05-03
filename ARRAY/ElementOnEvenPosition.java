@@ -7,21 +7,23 @@ public class ElementOnEvenPosition {
         int[] myArray = {10, 20, 30, 40, 50};
 
 
-        int[] evenPositions = computeRunningTotal(myArray);
+        int[] evenPositions = getElementsOnEvenPositions(myArray);
         System.out.println(Arrays.toString(evenPositions));
 
     }
-     public static int[] computeRunningTotal(int[] array) {
-        int[] runningTotalArray = new int[array.length];
-        int sumSoFar = 0;
+    public static int[] getElementsOnEvenPositions(int[] array) {
        
-        for (int indexCounter = 0; indexCounter < array.length; indexCounter++) {
-            sumSoFar = sumSoFar + array[indexCounter]; // Add current element to total.
-            runningTotalArray[indexCounter] = sumSoFar; // Put running total in the new array.
+        int resultSize = array.length / 2;
+        int[] result = new int[resultSize];
+               
+        int resultIndexCounter = 0;
+               
+            
+        for (int originalIndexCounter = 1; originalIndexCounter < array.length; originalIndexCounter = originalIndexCounter + 2) {
+            result[resultIndexCounter] = array[originalIndexCounter];
+            resultIndexCounter++;
         }
-        return runningTotalArray;
-    }
-
+        return result;
     }
 }
 
